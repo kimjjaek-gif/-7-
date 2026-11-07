@@ -1,7 +1,7 @@
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { marked } from "marked";
 
-const raw = readFileSync("index.md", "utf8");
+const raw = readFileSync(new URL("../index.md", import.meta.url), "utf8");
 const md = raw.replace(/^---\n[\s\S]*?\n---\n/, "");
 const title = (md.match(/^#\s+(.+)$/m) || [, "모두를 위한 철학"])[1];
 const body = marked.parse(md, { gfm: true });
@@ -27,6 +27,6 @@ ${body}
 </body>
 </html>
 `;
-mkdirSync("public", { recursive: true });
-writeFileSync("public/index.html", html);
-console.log("built public/index.html");
+
+writeFileSync(new URL("../index.html", import.meta.url), html);
+console.log("built index.html");

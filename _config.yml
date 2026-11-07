@@ -1,11 +1,7 @@
 title: 모두를 위한 철학
-description: 생존의 철학 — 동양·서양 철학과 AI 시대
 lang: ko
-theme: jekyll-theme-primer
 exclude:
-  - package.json
-  - package-lock.json
-  - build.mjs
+  - index.md
+  - tools
   - vercel.json
-  - node_modules
-  - public
+  - .vercelignore
